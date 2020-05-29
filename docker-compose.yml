@@ -1,0 +1,21 @@
+### 使用空客不要使用Tab 对齐
+version: "3"
+services:
+    nginx:
+        build: nginx/
+        container_name: dk-nginx
+        restart: always
+        working_dir: /var/www/
+        volumes:
+           - ./nginx/conf.d:/etc/nginx/conf.d/
+        ports:
+           - "8181:80"
+
+    php-fpm:
+        build: php-fpm/
+        container_name: dk-php-fpm
+        restart: always
+        working_dir: /var/www/
+        volumes:
+           - /danke/:/var/www/
+
