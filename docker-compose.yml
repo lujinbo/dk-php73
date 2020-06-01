@@ -11,11 +11,12 @@ services:
         ports:
            - "8181:80"
 
-    php-fpm:
+    web-php:
         build: php-fpm/
-        container_name: dk-php-fpm
+        container_name: dk-php
         restart: always
         working_dir: /var/www/
         volumes:
            - /danke/:/var/www/
-
+        depends_on:
+            - nginx
