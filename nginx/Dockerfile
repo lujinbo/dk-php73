@@ -19,5 +19,4 @@ COPY nginx.conf /etc/nginx/nginx.conf
 HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
     CMD curl --fail http://localhost || exit 1
 EXPOSE 80
-ENTRYPOINT ["nginx", "-c", "/etc/nginx/nginx.conf"]
 CMD ["nginx", "-g", "daemon off;"]
