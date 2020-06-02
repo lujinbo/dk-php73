@@ -16,7 +16,7 @@ RUN apk update && apk upgrade -a && apk add --no-cache  curl wget bash vim sed
 COPY nginx.conf /etc/nginx/nginx.conf
 RUN nginx -c /etc/nginx/nginx.conf
 # 健康检查 --interval检查的间隔 超时timeout retries失败次数
-HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
-    CMD curl --fail http://localhost || exit 1
-EXPOSE 80
+#HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
+#    CMD curl --fail http://localhost || exit 1
+#EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
