@@ -12,6 +12,7 @@ services:
            - "8080:80"
         depends_on:
             - web-php
+
     web-php:
         build: php-fpm/
         container_name: dk-php
