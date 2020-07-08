@@ -10,7 +10,8 @@ services:
            - ./nginx/conf.d:/etc/nginx/conf.d/
         ports:
            - "8080:80"
-
+        depends_on:
+            - web-php
     web-php:
         build: php-fpm/
         container_name: dk-php
@@ -18,5 +19,3 @@ services:
         working_dir: /var/www/
         volumes:
            - /danke/:/var/www/
-        depends_on:
-            - nginx
